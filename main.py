@@ -94,7 +94,9 @@ def update_stress_status():
         return f"{processed_count} post(s) processed and updated successfully."
 
     except Exception as e:
-        print(f"Flask Error: {str(e)}")
+        # --- ADD THIS LINE TO LOG CRASHES ---
+        print(f"!!! Critical Flask Error in /home: {str(e)}") 
+        # ------------------------------------
         return f"An unexpected error occurred: {str(e)}"
 
 if __name__ == '__main__':
