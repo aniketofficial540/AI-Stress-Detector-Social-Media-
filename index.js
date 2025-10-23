@@ -426,7 +426,7 @@ app.get("/home", async (req, res) => {
         console.log(`Attempting to trigger AI server at: ${flaskServerUrl}/home`);
         try {
             // Wait for max 7 seconds (7000 ms) for the Python server
-            const aiResponse = await axios.get(flaskServerUrl + "/home", { timeout: 7000 });
+            const aiResponse = await axios.get(flaskServerUrl + "/home", { timeout: 20000 });
             // If we get here, the server responded within the timeout
             console.log("Flask model trigger successful:", aiResponse.data);
             aiTriggeredSuccessfully = true;
