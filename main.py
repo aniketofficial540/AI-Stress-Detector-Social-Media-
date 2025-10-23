@@ -50,6 +50,11 @@ def predict_stress(text):
     return 1.00 if prediction[0] == 1 else 0.00
 
 
+@app.route('/', methods=['GET'])
+def health_check():
+    """A simple route to respond to health checks."""
+    return "AI Stress Detector API is running!", 200
+
 # --- 4. THE MAIN AI ROUTE ---
 @app.route('/home', methods=['GET'])
 def update_stress_status():
