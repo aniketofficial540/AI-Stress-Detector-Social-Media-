@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tulas Media</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/public/styles.css">
+</head>
+
+<body>
+  <!-- <script>
+    // alert("Please Refresh the Page.")
+  </script> -->
+  <div class="container">
+    <!-- Left Sidebar -->
+    <aside class="left-sidebar">
+      <div class="sidebar-header">
+        <h1 class="logo">Tulas Media</h1>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="/home" class="nav-item active"><i class="fas fa-home"></i> <span>Home</span></a>
+        <a href="#"><i class="fas fa-search"></i> <span>Search</span></a>
+        <a href="#"><i class="fas fa-compass"></i> <span>Explore</span></a>
+        <a href="#"><i class="fas fa-film"></i> <span>Reels</span></a>
+        <a href="messages.html"><i class="fas fa-envelope"></i> <span>Messages</span></a>
+        <a href="#"><i class="fas fa-heart"></i> <span>Notifications</span></a>
+        <a href="/create-post"><i class="fas fa-plus-square"></i> <span>Create</span></a>
+        <a href="/profile/<%= profile.username %>"><i class="fas fa-user"></i> <span>Profile</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#"><i class="fas fa-bars"></i> <span>More</span></a>
+      </div>
+    </aside>
+
+    <!-- Main Feed -->
+    <main class="main-content">
+      <!-- Stories -->
+      <div class="stories-section">
+        <div class="stories-wrapper">
+          <div class="story">
+            <div class="story-avatar">
+              <img src="<%= profile.profile_image_url || '/default-avatar.png' %>" alt="Profile Image">
+              <div class="add-story">+</div>
+            </div>
+            <p>Your Story</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Posts -->
+      <div class="posts-feed">
+        <% posts.forEach(post => { %>
+          <div class="post-card">
+            <div class="post-header">
+              <img src="<%= post.profile_image || '/default-avatar.png' %>" class="post-avatar" alt="User">
+              <div>
+                <span class="post-username"><%= post.display_name %></span>
+                <% if (post.stress_level && post.stress_level > 0.5) { %>
+                  <span class="stress-tag">Stress</span>
+                <% } %>
+              </div>
+              <i class="fas fa-ellipsis-h post-more"></i>
+            </div>
+
+            <img src="<%= post.image %>" class="post-image" alt="Post">
+
+            <div class="post-actions">
+              <i class="far fa-heart"></i>
+              <i class="far fa-comment"></i>
+              <i class="far fa-paper-plane"></i>
+              <i class="far fa-bookmark"></i>
+            </div>
+
+            <div class="post-caption">
+              <strong><%= post.username %></strong>
+              <span><%= post.caption %></span>
+            </div>
+
+            <div class="post-time">
+              Posted on <%= new Date(post.timestamp).toLocaleString() %>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right-sidebar">
+      <div class="user-profile">
+        <img src="<%= profile.profile_image_url || '/default-avatar.png' %>" class="profile-img" alt="Profile">
+        <div class="user-info">
+          <a href="/profile/<%= profile.username %>" class="username"><%= profile.username %></a>
+          <span class="name"><%= profile.display_name || profile.username %></span>
+        </div>
+        <a href="/logout" class="logout-btn">Log Out</a>
+      </div>
+
+      <div class="suggestions-header">
+        <span>Suggestions For You</span>
+        <a href="#">See All</a>
+      </div>
+      <div class="suggestions-list"></div>
+
+      <footer class="right-sidebar-footer">
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Help</a>
+          <a href="#">Press</a>
+          <a href="#">Jobs</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+        <p>© 2025 Tulas Media</p>
+      </footer>
+    </aside>
+  </div>
+
+  <script src="/public/script.js"></script>
+</body>
+</html>

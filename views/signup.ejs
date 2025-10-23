@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up Page</title>
+    <link rel="stylesheet" href="/public/style_ls.css">
+
+</head>
+
+<body>
+
+    <form action="/signup" method="post" class="form">
+        <div class="flex-column">
+            <label>Username </label>
+        </div>
+        <div class="inputForm">
+            <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
+            </svg>
+            <input name="username" type="text" class="input" placeholder="Enter your username" required>
+        </div>
+
+        <div class="flex-column">
+            <label>Email </Llabel>
+        </div>
+        <div class="inputForm">
+            <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
+            </svg>
+            <input name="email" type="email" class="input" placeholder="Enter your Email" required>
+        </div>
+
+        <div class="flex-column">
+            <label>Password </label>
+        </div>
+        <div class="inputForm">
+            <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg">
+            </svg>
+            <input name="password" type="password" class="input" placeholder="Enter your Password" required>
+            <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+            </svg>
+        </div>
+
+        <div class="flex-row">
+            <div>
+                <input type="checkbox">
+                <label>Remember me </label>
+            </div>
+            <span class="span">Forgot password?</span>
+        </div>
+        <button type="submit" class="button-submit">Sign Up</button>
+        <p class="p">Already have an account? <a href="/login" class="span">Log In</a>
+        </p>
+        <p class="p line">Or With</p>
+
+        <div class="flex-row">
+        </div>
+    </form>
+</body>
+
+</html>

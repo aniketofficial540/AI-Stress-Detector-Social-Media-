@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="/public/style_ls.css"> 
+    <style>
+        /* A few simple styles to make it look decent */
+        body { background-color: #fafafa; display: grid; place-items: center; min-height: 100vh; }
+        .edit-form { background: #fff; border: 1px solid #dbdbdb; padding: 2rem; border-radius: 8px; max-width: 400px; }
+        .edit-form h2 { text-align: center; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 8px; border: 1px solid #dbdbdb; border-radius: 3px; }
+    </style>
+</head>
+<body>
+
+    <form class="form edit-form" action="/edit-profile" method="POST" enctype="multipart/form-data">
+        <h2>Edit Your Profile</h2>
+
+        <div class="form-group">
+            <label for="profile_image">Change Profile Image</label>
+            <input type="file" id="profile_image" name="profile_image" accept="image/*">
+        </div>
+
+        <div class="form-group">
+            <label for="display_name">Display Name</label>
+            <input type="text" id="display_name" name="display_name" value="<%= profile.display_name || '' %>">
+        </div>
+
+        <div class="form-group">
+            <label for="bio">Bio</label>
+            <textarea id="bio" name="bio" rows="4"><%= profile.bio || '' %></textarea>
+        </div>
+
+        <button type="submit" class="button-submit">Save Changes</button>
+    </form>
+
+</body>
+</html>
